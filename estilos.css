@@ -1,0 +1,206 @@
+/* =========================================
+   1. VARIABLES DE COLOR (Tus cimientos)
+   ========================================= */
+
+/* MODO OSCURO (Por defecto) */
+:root {
+    --fondo-principal: #111111;
+    --fondo-tarjetas: #1a1a1a;
+    --texto-principal: #ffffff;
+    --texto-secundario: #a0a0a0;
+    --dorado: #D4AF37;
+}
+
+/* MODO CLARO (Se activa solo si el usuario lo prefiere en su celular/PC) */
+@media (prefers-color-scheme: light) {
+    :root {
+        --fondo-principal: #f4f5f7;
+        --fondo-tarjetas: #ffffff;
+        --texto-principal: #111111;
+        --texto-secundario: #555555;
+        /* El dorado se mantiene igual para mantener la marca */
+    }
+}
+
+/* =========================================
+   2. RESETEO UNIVERSAL
+   ========================================= */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* =========================================
+   3. SECCIÓN HERO (La portada principal)
+   ========================================= */
+.hero {
+    background-color: var(--fondo-principal);
+    color: var(--texto-principal);
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.contenedor-texto {
+    text-align: center;
+    max-width: 600px;
+    padding: 20px;
+}
+
+.hero h1 {
+    font-size: 3.5rem;
+    color: var(--dorado);
+    margin-bottom: 20px;
+}
+
+.hero p {
+    font-size: 1.2rem;
+    line-height: 1.6;
+    color: var(--texto-secundario);
+    margin-bottom: 40px;
+}
+
+.boton-reserva {
+    background-color: var(--dorado);
+    color: #111111; /* Este lo dejamos fijo en negro para que el botón siempre contraste */
+    text-decoration: none;
+    padding: 15px 40px;
+    font-size: 1.1rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    border-radius: 3px;
+    transition: all 0.3s ease;
+}
+
+.boton-reserva:hover {
+    background-color: var(--texto-principal);
+    color: var(--fondo-principal);
+}
+
+/* =========================================
+   4. SECCIÓN DE SERVICIOS Y PRECIOS (La Grilla)
+   ========================================= */
+.seccion-servicios {
+    background-color: var(--fondo-principal);
+    padding: 80px 20px;
+    text-align: center;
+}
+
+.seccion-servicios h2 {
+    color: var(--dorado);
+    font-size: 2.5rem;
+    margin-bottom: 50px;
+}
+
+.grid-servicios {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.tarjeta-servicio {
+    background-color: var(--fondo-tarjetas);
+    padding: 30px;
+    border-radius: 8px;
+    border: 1px solid var(--texto-secundario); /* Usamos el gris secundario para el borde */
+    transition: transform 0.3s ease, border-color 0.3s ease;
+}
+
+.tarjeta-servicio:hover {
+    transform: translateY(-10px);
+    border-color: var(--dorado);
+}
+
+.tarjeta-servicio h3 {
+    color: var(--texto-principal);
+    font-size: 1.5rem;
+    margin-bottom: 15px;
+}
+
+.tarjeta-servicio p {
+    color: var(--texto-secundario);
+    font-size: 1rem;
+    line-height: 1.5;
+    margin-bottom: 20px;
+}
+
+.tarjeta-servicio .precio {
+    display: block;
+    color: var(--dorado);
+    font-size: 1.8rem;
+    font-weight: bold;
+}
+
+/* =========================================
+   5. PIE DE PÁGINA (Footer)
+   ========================================= */
+.pie-pagina {
+    background-color: #0a0a0a; /* Un negro aún más oscuro que el fondo principal para delimitar el final */
+    color: var(--texto-secundario);
+    padding-top: 50px;
+}
+
+/* El contenedor principal usando Flexbox */
+.contenedor-footer {
+    display: flex;
+    flex-wrap: wrap; /* MAGIA: Si no hay espacio horizontal, tira los elementos a la fila de abajo */
+    justify-content: space-between;
+    gap: 40px;
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 0 20px 40px 20px;
+}
+
+/* Le decimos a ambas columnas que intenten ocupar el mismo espacio,
+   pero que NUNCA midan menos de 300px */
+.info-contacto, .mapa-ubicacion {
+    flex: 1 1 300px;
+}
+
+/* Estilos de los textos del contacto */
+.info-contacto h3 {
+    color: var(--dorado);
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+}
+
+.info-contacto p {
+    margin-bottom: 10px;
+    line-height: 1.5;
+}
+
+/* Estilos de los enlaces de redes sociales */
+.redes {
+    margin-top: 20px;
+}
+
+.redes a {
+    color: var(--texto-principal);
+    text-decoration: none;
+    margin-right: 15px;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+.redes a:hover {
+    color: var(--dorado);
+}
+
+/* Redondeamos las esquinas del iframe del mapa para que no se vea tan cuadrado y duro */
+.mapa-ubicacion iframe {
+    border-radius: 8px;
+}
+
+/* La barrita final de copyright */
+.copyright {
+    text-align: center;
+    padding: 20px;
+    background-color: #000000;
+    font-size: 0.9rem;
+    border-top: 1px solid #222; /* Una línea divisoria muy fina */
+}
